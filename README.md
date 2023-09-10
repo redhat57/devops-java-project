@@ -1,27 +1,30 @@
 # devops-java-project
-To generate jar file, Run below command:
-＄ mvn install
+**Step 1: To generate jar file, Run below command:**
+`＄ mvn install`
 The jar file can be located in target/ directory.
 
-Building a Docker image
+**Step 2: Building a Docker image**
 To build our Docker image using the Dockerfile, run:
 
-＄ docker build -t my-maven-docker-project.jar .
+`＄ docker build -t my-maven-docker-project.jar .`
 
-The above command:
-
+**Step 3: The above command**
 Builds our project, naming it my-maven-docker-project.jar
-
 Tags the image via the -t flag
-
 Tells Docker to look for the docker file in the same directory via the .
 
-Running a Docker image
+**Step 4: Running a Docker image**
 Finally, we can run our project by starting a Docker container with the previously built image and binding port 8080 on our local machine.
 
-＄ docker run -p 8080:8080 my-maven-docker-project.jar
+`＄ docker run -p 8080:8080 my-maven-docker-project.jar`
 The command above:
-
 Runs the Docker image and -p publishes the container’s port 8080 to the host (your machine) port 8080.
-
 We can now access localhost:8080 with a browser and see the “Hello, World!!! I just Dockerized a Maven Project” message from the webserver.
+
+Dockerfile:
+=================================================================
+FROM keyword tells Docker the base image on which we want our image built. In our case, OpenJDK 8 official docker image.
+ADD keyword adds the jar we’ve created getting it from the new /target directory.
+ENTRYPOINT keyword specifies commands to run the jar file.
+EXPOSE keyword makes port 8080 available outside the Docker container.
+=================================================================

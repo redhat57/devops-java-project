@@ -26,8 +26,8 @@ We can now access localhost:8080 with a browser and see the “Hello, World!!! I
 
 Dockerfile:
 =================================================================
-FROM keyword tells Docker the base image on which we want our image built. In our case, OpenJDK 8 official docker image.
-ADD keyword adds the jar we’ve created getting it from the new /target directory.
-ENTRYPOINT keyword specifies commands to run the jar file.
-EXPOSE keyword makes port 8080 available outside the Docker container.
+1. FROM keyword tells Docker the base image on which we want our image built. In our case, OpenJDK 8 official docker image.
+2. ADD keyword adds the jar we’ve created getting it from the new /target directory.
+3. ENTRYPOINT keyword specifies commands to run the jar file.
+4. EXPOSE keyword makes port 8080 available outside the Docker container.
 =================================================================
